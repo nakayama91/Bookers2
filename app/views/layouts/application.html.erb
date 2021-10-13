@@ -4,43 +4,63 @@
     <title>Bookers2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    
     <header>
-      <span>Bookers</span>
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to "Home", user_path(current_user.id) %>
-        </li>
-        <li>
-          <%= link_to "Users", users_path %>
-        </li>
-        <li>
-          <%= link_to "Books", books_path %>
-        </li>
-        <li>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "Home", root_path %>
-        </li>
-        <li>
-          <%= link_to "About", home_about_path %>
-        </li>
-        <li>
-          <%= link_to "Sign up", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "Log in", new_user_session_path %>
-        </li>
-      <% end %>
+      
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          
+          <a class="navbar-brand" <%= link_to "Bookers", root_path %></a>
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              
+              <% if user_signed_in? %>
+                <li class="nav-item">
+                  <a class="fas fa-home nav-link text-light" <%= link_to "Home", users_show_path %></a>
+                </li>
+                <li class="nav-item">
+                  <a class="fas fa-users nav-link text-light" <%= link_to "Users", users_index_path %></a>
+                </li>
+                <li class="nav-item">
+                  <a class="fas fa-book-open nav-link text-light" <%= link_to "Books", books_path %></a><%# 後でindex_pathに訂正 %>
+                </li>
+                <li class="nav-item">
+                  <a class="fas fa-sign-out-alt nav-link text-light" <%= link_to "Log out", destroy_user_session_path, method: :delete %></a>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <a class="fas fa-home nav-link text-light" <%= link_to "Home", root_path %></a>
+                </li>
+                <li class="nav-item">
+                  <a class="fas fa-link nav-link text-light" <%= link_to "About", home_about_path %></a>
+                </li>
+                <li class="nav-item">
+                  <a class="fas fa-user-plus nav-link text-light" <%= link_to "Sign up", new_user_registration_path %></a>
+                </li>
+                <li class="nav-item">
+                  <a class="fas fa-sign-in-alt nav-link text-light" <%= link_to "Log in", new_user_session_path %></a>
+                </li>
+              <% end %>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
     </header>
     
     <%= yield %>
+    
   </body>
 </html>
