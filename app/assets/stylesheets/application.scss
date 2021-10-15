@@ -22,6 +22,30 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
+
 }
 
+// sign up・log inページのcss
+.field{
+  margin-bottom: 10px;
+}
+
+.actions{
+  margin-bottom: 10px;
+}
+
+.btn .btn-sm .btn-success .bt-primary{
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+  padding: 4px 8px;
+}
+
+//New book　テキストボックスのpadding
+input[type="text" i]{
+  padding: 6px 12px;
+}
+
+textarea{
+  padding: 6px 12px;
+}

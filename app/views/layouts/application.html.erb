@@ -27,10 +27,10 @@
               
               <% if user_signed_in? %>
                 <li class="nav-item">
-                  <a class="fas fa-home nav-link text-light" <%= link_to " Home", users_show_path %></a>
+                  <a class="fas fa-home nav-link text-light" <%= link_to " Home", users_path(current_user.id) %></a>
                 </li>
                 <li class="nav-item">
-                  <a class="fas fa-users nav-link text-light" <%= link_to " Users", users_index_path %></a>
+                  <a class="fas fa-users nav-link text-light" <%= link_to " Users", users_path %></a>
                 </li>
                 <li class="nav-item">
                   <a class="fas fa-book-open nav-link text-light" <%= link_to " Books", books_path %></a><%# 後でindex_pathに訂正 %>
