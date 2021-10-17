@@ -27,7 +27,7 @@
               
               <% if user_signed_in? %>
                 <li class="nav-item">
-                  <a class="fas fa-home nav-link text-light" <%= link_to " Home", users_path(current_user.id) %></a>
+                  <a class="fas fa-home nav-link text-light" <%= link_to " Home", user_path(current_user.id) %></a>
                 </li>
                 <li class="nav-item">
                   <a class="fas fa-users nav-link text-light" <%= link_to " Users", users_path %></a>
@@ -59,6 +59,9 @@
       </nav>
       
     </header>
+    
+    <%= render 'layouts/flash' %>
+    <p id="notice"></p>
     
     <%= yield %>
     
