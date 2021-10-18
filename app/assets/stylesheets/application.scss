@@ -41,12 +41,19 @@
   padding: 4px 8px;
 }
 
-// flashのcss
+// flashmessageのcss
 .notice{
   color: green;
   margi-bottom: 16px;
 }
 
+// errormessageのcss
+.error_explanation{
+  color: red;
+}
+.error_list{
+  padding-left: 40px;
+}
 
 //New book　テキストボックスのpadding
 //input[type="text" i]{
