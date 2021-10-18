@@ -34,11 +34,9 @@
   margin-bottom: 10px;
 }
 
-.btn .btn-sm .btn-success .bt-primary{
-  color: #fff;
-  background-color: #28a745;
-  border-color: #28a745;
-  padding: 4px 8px;
+//signin,loginの入力欄
+input{
+  padding: 1px 2px;
 }
 
 // flashmessageのcss
@@ -58,15 +56,7 @@
   padding-left: 40px;
 }
 
-//signin,loginの入力欄
-input{
-  padding: 1px 2px;
-}
-
-//userinfoのcss
-.new-book{
+//投稿・編集入力欄のcss
+.form-group{
   margin-bottom: 16px;
-}
-.new-box{
-  padding: 6px 12px;
 }
