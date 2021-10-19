@@ -20,12 +20,12 @@
         <%= form_with model:@book, local:true do |f| %>
           <div class="form-group">
             <label>Title</label> <br />
-              <%= f.text_field :title, class:'form-control' %> <br />
+              <%= f.text_field :title, class:'form-control' %>
           </div>
 
           <div class="form-group">
             <label>Opinion</label> <br />
-            <%= f.text_area :body, class:'form-control' %> <br />
+            <%= f.text_area :body, class:'form-control' %>
           </div>
           <div class="form-group">
             <%= f.submit "Update Book" , class:'btn btn-success' %>

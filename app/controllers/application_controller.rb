@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
     #ログイン後の遷移先を変更
     def after_sign_in_path_for(resource)
-    users_path(current_user.id)
+        @user_path
     end
 
 end

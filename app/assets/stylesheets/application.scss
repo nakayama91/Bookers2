@@ -56,6 +56,14 @@ input{
   padding-left: 40px;
 }
 
+//sign up失敗時のcss
+#error_explanation{
+  color: red;
+}
+#error_explanation ul{
+  padding-left: 40px;
+}
+
 //投稿・編集入力欄のcss
 .form-group{
   margin-bottom: 16px;
