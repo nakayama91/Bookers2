@@ -1,7 +1,7 @@
 <main>
 
   <div class="container px-5 px-sm-0">
-    
+
     <% if @newbook.errors.any? %>
       <div class="error_explanation">
         <h3 class="error_title">
@@ -13,8 +13,8 @@
           <% end %>
         </ul>
       </div>
-    <% end %>  
-      
+    <% end %>
+
     <div class="row">
 
       <%# 左側userinfoの表示 %>
@@ -48,6 +48,17 @@
                 <% end %>
               </td>
               <td><%= book.body %></td>
+              <td>
+                <% if book.favorited_by?(current_user) %>
+                  <%= link_to book_favorites_path(book), method: :delete do %>
+                    ♥<%= book.favorites.count %>
+                  <% end %>
+                <% else %>
+                  <%= link_to book_favorites_path(book), method: :post do %>
+                    ♡<%= book.favorites.count %>
+                  <% end %>
+                <% end %>
+              </td>
             </tr>
             <% end %>
           </tbody>
