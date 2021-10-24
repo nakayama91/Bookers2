@@ -1,7 +1,7 @@
 <main>
 
   <div class="container px-5 px-sm-0">
-    
+
     <% if @newbook.errors.any? %>
       <div class="error_explanation">
         <h3 class="error_title">
@@ -13,8 +13,8 @@
           <% end %>
         </ul>
       </div>
-    <% end %>  
-      
+    <% end %>
+
     <div class="row">
 
       <%# 左側userinfoの表示 %>
@@ -48,6 +48,8 @@
                 <% end %>
               </td>
               <td><%= book.body %></td>
+              <%= render 'books/favorite', book: book %>
+              <td>コメント数: <%= book.book_comments.count %></td>
             </tr>
             <% end %>
           </tbody>
