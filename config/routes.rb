@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   
   resources :users do
     resource :relationships, only: [:create, :destroy]
-    get 'followings' => 'relationships#followings', as:'followings'
-    get 'followers' => 'relationships#followers', as:'followers'
+    get 'followings', on: :member #=> 'relationships#followings', as: 'followings'
+    get 'followers', on: :member #=> 'relationships#followers', as: 'followers'
   end
     
   resources :books do

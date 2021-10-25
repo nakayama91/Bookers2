@@ -6,12 +6,6 @@ class UsersController < ApplicationController
     @books = @user.books
   end
 
-#  def create
-#   @user = User.new(user_params)
-#   @book = Book.new(book_params)
-#   @book.user_id = current_user.id
-#  end
-
   def edit
     @user = User.find(params[:id])
     if @user == current_user
@@ -38,6 +32,16 @@ class UsersController < ApplicationController
   end
 
   def destroy
+  end
+  
+  def followings
+    user = User.find(params[:id])
+    @users = user.followings
+  end
+  
+  def followers
+    user = User.find(params[:id])
+    @users =user.followers
   end
 
   private
