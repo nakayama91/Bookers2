@@ -45,13 +45,10 @@
 
         <%# コメント一覧 %>
         <div id="comment-table">
-          <%= render 'book_comments/comment', book: @book %>
+          <%= render 'book_comments/comment', book: @book, book_comments: @book_comments  %>
         </div>
         <%# コメント入力欄 %>
-        <%= form_with model:[@book, @book_comment], remote: true do |f| %>
-          <%= f.text_area :comment, rows:'5', class:'col-12' %>
-          <%= f.submit "送信" %>
-        <% end %>
+          <%= render 'book_comments/form' %>
       </div>
     </div>
   </div>
