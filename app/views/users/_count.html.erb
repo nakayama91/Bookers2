@@ -1,0 +1,18 @@
+<h1>投稿数の前日比・前週比</h1>
+<div class="col-10">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>今日の投稿数</th>
+        <th>前日の投稿数</th>
+        <th>前日比</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @today_book.count %></td>
+        <td><%= @yesterday_book.count %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
