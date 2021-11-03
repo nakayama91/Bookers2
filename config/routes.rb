@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resource :relationships, only: [:create, :destroy]
     get 'followings', on: :member #=> 'relationships#followings', as: 'followings'
     get 'followers', on: :member #=> 'relationships#followers', as: 'followers'
+    get "search", to: "users#search"
   end
 
   resources :books do
