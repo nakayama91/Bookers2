@@ -10,6 +10,7 @@ class BooksController < ApplicationController
       }
     @newbook = Book.new
     @user = current_user
+
   end
 
   def show
@@ -18,6 +19,7 @@ class BooksController < ApplicationController
     @user = @book.user
     @book_comment = BookComment.new
     @book_comments = @book.book_comments
+    impressionist(@book, nil, unique: [:ip_address])
   end
 
   def create

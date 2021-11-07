@@ -71,3 +71,5 @@ gem 'jquery-rails'
 gem 'font-awesome-sass'
 
 gem 'chartkick'
+
+gem 'impressionist', '~>1.6.1'
