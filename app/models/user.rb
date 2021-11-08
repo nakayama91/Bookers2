@@ -16,9 +16,13 @@ class User < ApplicationRecord
   has_many :reverse_of_relationships, class_name:"Relationship", foreign_key:"follower_id", dependent: :destroy
   #あるユーザーをフォローしている人全員を持ってくる。(followed=あるユーザーをフォローしている人)
   has_many :followers, through: :reverse_of_relationships, source: :followed
-  
+
   has_many :user_rooms, dependent: :destroy
   has_many :chats, dependent: :destroy
+
+  has_many :group_users
+  has_many :groups, through: :group_users
+  has_many :owned_groups, class_name: "Group"
 
   def following?(user)
     followings.include?(user)

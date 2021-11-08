@@ -1,0 +1,31 @@
+<main>
+  <div class="container px-5 px-sm-0">
+    <div class="row">
+
+      <%# user info %>
+      <%= render 'books/userinfo' %>
+
+      <div class="col-md-8 offset-md-1">
+        <h2>Group Detail</h2>
+
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <%= attachment_image_tag @group, :group_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg" %>
+              </td>
+              <td><%= @group.name %></td>
+              <td><%= @group.introduction %></td>
+              <td>
+                <% if @group.owner_id == current_user.id %>
+                  <p><%= link_to "Edit", edit_group_path(@group), class:'btn btn-sm btn-success' %></p>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</main>

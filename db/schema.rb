@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_06_131850) do
+ActiveRecord::Schema.define(version: 2021_11_08_020235) do
 
   create_table "book_comments", force: :cascade do |t|
     t.text "comment"
@@ -42,6 +42,27 @@ ActiveRecord::Schema.define(version: 2021_11_06_131850) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "book_id"
+  end
+
+  create_table "group_users", force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_group_users_on_group_id"
+    t.index ["user_id"], name: "index_group_users_on_user_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "group_image_id"
+    t.text "introduction"
+    t.integer "owner_id"
+    t.integer "user_id"
+    t.index ["name"], name: "index_groups_on_name", unique: true
+    t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
   create_table "impressions", force: :cascade do |t|

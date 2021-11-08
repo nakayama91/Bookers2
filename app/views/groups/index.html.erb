@@ -1,0 +1,44 @@
+<main>
+  <div class="container px-5 px-sm-0">
+    <div class="row">
+
+      <%# user info %>
+      <%= render 'books/userinfo' %>
+
+      <div class="col-md-8 offset-md-1">
+        <h2>Groups</h2>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="col-3">image</th>
+              <th>name</th>
+              <th>紹介文</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @groups.each do |group| %>
+            <tr>
+              <td>
+                <%= attachment_image_tag group, :group_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg" %>
+              </td>
+              <td><%= link_to group_path(group.id) do %>
+                    <%= group.name %>
+                  <% end %>
+              </td>
+              <td><%= group.introduction %></td>
+              <td>
+                <% if group.owner_id == current_user.id %>
+                  <p><%= link_to "Edit", edit_group_path(group), class:'btn btn-sm btn-success' %></p>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</main>
