@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :ensure_guest_user, only: [:edit]
 
   def show
     @user = User.find(params[:id])
@@ -43,7 +44,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     @users =user.followers
   end
-  
+
   def search
     @user = User.find(params[:user_id])
     @books = @user.books
@@ -60,7 +61,13 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
+  end
 
+  def ensure_guest_user
+    @user = User.find(params[:id])
+    if @user.name == "guestuser"
+      redirect_to user_path(current_user), notic:'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+    end
   end
 
 end
