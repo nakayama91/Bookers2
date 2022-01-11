@@ -1,7 +1,5 @@
 class BooksController < ApplicationController
 
-
-
   def index
     @books = Book.includes(:favorited_users).
       sort {|a,b|
